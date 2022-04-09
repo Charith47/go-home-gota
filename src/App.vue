@@ -30,7 +30,7 @@
         ></v-checkbox>
 
         <!--router links here-->
-        <router-link to="/about">About</router-link>
+        <router-link to="/about">{{ $t("main.appBar.about") }}</router-link>
       </v-container>
     </v-app-bar>
 

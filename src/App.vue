@@ -1,6 +1,9 @@
 <template>
-  <v-app>
-    <v-app-bar app color="black" dark> </v-app-bar>
+  <v-app id="main">
+    <v-app-bar app color="transparent" elevation="0">
+      <!--router links here-->
+      <router-link to="/about"></router-link>
+    </v-app-bar>
 
     <v-main>
       <router-view />
@@ -17,5 +20,15 @@ export default {
       test: "testvar",
     };
   },
+
+  mounted() {
+    console.log(this.$vuetify.theme);
+  },
 };
 </script>
+
+<style>
+#main {
+  background-color: var(--v-background-base);
+}
+</style>

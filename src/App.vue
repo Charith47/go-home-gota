@@ -21,16 +21,19 @@
 
         <v-spacer></v-spacer>
 
+        <LocaleSwitcher></LocaleSwitcher>
+
         <!--dark mode switch-->
-        <v-checkbox
-          @change="toggleTheme"
-          class="pt-5 px-2 text--primary"
-          :off-icon="icons.mdiThemeLightDark"
-          :on-icon="icons.mdiThemeLightDark"
-        ></v-checkbox>
+        <v-btn @click="toggleTheme" icon class="mr-4 text--primary">
+          <v-icon>
+            {{ icons.mdiThemeLightDark }}
+          </v-icon>
+        </v-btn>
 
         <!--router links here-->
-        <router-link class="text--primary" to="/about">{{ $t("main.appBar.about") }}</router-link>
+        <router-link class="text--primary" to="/about">{{
+          $t("main.appBar.about")
+        }}</router-link>
       </v-container>
     </v-app-bar>
 
@@ -41,9 +44,13 @@
 </template>
 
 <script>
+import LocaleSwitcher from "./components/LocaleSwitcher.vue";
 import { mdiCheckboxBlankCircle, mdiThemeLightDark } from "@mdi/js";
 export default {
   name: "App",
+  components: {
+    LocaleSwitcher,
+  },
   data() {
     return {
       icons: {

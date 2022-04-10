@@ -10,16 +10,16 @@ export default new Vuetify({
     theme: {
         themes: {
             dark: {
-                primary: '#FFFFFF',
-                background: '#020202',
+                primary: '#FAFAFA',
+                background: '#121212',
                 justice: '#9B003A',
                 strength: '#FFBC01',
                 peace: '#00554E',
                 victory: '#FD6C03'
             },
             light: {
-                primary: '#020202',
-                background: '#FFFFFF',
+                primary: '#121212',
+                background: '#FAFAFA',
                 justice: '#9B003A',
                 strength: '#FFBC01',
                 peace: '#00554E',

@@ -2,9 +2,9 @@
   <v-app id="main">
     <!--top appbar-->
     <v-app-bar id="app-bar" app flat outlined>
-      <v-container class="py-0 fill-height">
+      <v-container class="py-0 my-0 fill-height">
         <!--main title-->
-        <h2 class="px-2">GoHomeGota</h2>
+        <h2 class="px-2 text--primary">GoHomeGota</h2>
         <!--TODO: replace with svg?-->
         <v-icon class="dot" x-small color="justice">
           {{ icons.mdiCheckboxBlankCircle }}
@@ -24,13 +24,13 @@
         <!--dark mode switch-->
         <v-checkbox
           @change="toggleTheme"
-          class="pt-5 px-2"
+          class="pt-5 px-2 text--primary"
           :off-icon="icons.mdiThemeLightDark"
           :on-icon="icons.mdiThemeLightDark"
         ></v-checkbox>
 
         <!--router links here-->
-        <router-link to="/about">{{ $t("main.appBar.about") }}</router-link>
+        <router-link class="text--primary" to="/about">{{ $t("main.appBar.about") }}</router-link>
       </v-container>
     </v-app-bar>
 
@@ -125,7 +125,7 @@ https://stackoverflow.com/a/58126223
 }
 
 #app-bar.theme--dark {
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(18, 18, 18, 0.35);
 }
 
 .dot {

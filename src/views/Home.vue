@@ -1,11 +1,16 @@
 <template>
-  <v-container class="px-5">
-    <h2>Hello from Home</h2>
+  <v-container>
+    <Carousel></Carousel>
   </v-container>
 </template>
 
 <script>
+import Carousel from "../components/Carousel.vue";
+
 export default {
   name: "Home",
+  components: {
+    Carousel,
+  },
 };
 </script>

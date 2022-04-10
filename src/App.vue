@@ -1,7 +1,7 @@
 <template>
   <v-app id="main">
     <!--top appbar-->
-    <v-app-bar id="app-bar" app flat outlined color="transparent">
+    <v-app-bar id="app-bar" app flat outlined>
       <v-container class="py-0 fill-height">
         <!--main title-->
         <h2 class="px-2">GoHomeGota</h2>
@@ -95,23 +95,61 @@ export default {
 a {
   text-decoration: none;
 }
-.dot {
-  margin: 2px;
-}
-#main {
-  background-color: var(--v-background-base);
-}
-#app-bar {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
+
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#main {
+  background-color: var(--v-background-base);
+}
+
+/*
+https://braydoncoyer.dev/blog/build-a-glassmorphic-navbar-with-tailwindcss-backdrop-filter-and-backdrop-blur
+https://hype4.academy/tools/glassmorphism-generator
+*/
+
+#app-bar {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/*
+https://stackoverflow.com/a/58126223
+*/
+#app-bar.theme--light {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+#app-bar.theme--dark {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.dot {
+  margin: 2px;
+}
+
+/*
+https://rhyslloyd.me/dimming-images-for-dark-mode/
+*/
+.v-image .theme--dark {
+  filter: brightness(75%) grayscale(25%);
+  transition-property: filter;
+
+  transition-duration: 0.5s;
+  transition-delay: 0.01s;
+  transition-timing-function: ease-out;
+}
+
+.v-image .theme--light {
+  filter: brightness(100%) grayscale(0%);
+  transition-property: filter;
+
+  transition-duration: 0.5s;
+  transition-delay: 0.01s;
+  transition-timing-function: ease-in;
 }
 </style>

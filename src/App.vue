@@ -5,7 +5,7 @@
       <v-container class="py-0 fill-height">
         <!--main title-->
         <h2 class="px-2">GoHomeGota</h2>
-        <!--replace with svg?-->
+        <!--TODO: replace with svg?-->
         <v-icon class="dot" x-small color="justice">
           {{ icons.mdiCheckboxBlankCircle }}
         </v-icon>
@@ -23,8 +23,8 @@
 
         <!--dark mode switch-->
         <v-checkbox
+          @change="toggleTheme"
           class="pt-5 px-2"
-          v-model="$vuetify.theme.dark"
           :off-icon="icons.mdiThemeLightDark"
           :on-icon="icons.mdiThemeLightDark"
         ></v-checkbox>
@@ -51,6 +51,42 @@ export default {
         mdiCheckboxBlankCircle,
       },
     };
+  },
+  mounted() {
+    this.loadTheme();
+  },
+  methods: {
+    /**
+     * Toggles global theme and saves the state on local storage
+     */
+    toggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+
+      const storage = window.localStorage;
+      storage.setItem("isDark", this.$vuetify.theme.dark);
+    },
+
+    /**
+     * Loads and sets theme state from local storage.
+     * If local storage entry does not exist, it will search for the user preference.
+     * If the user preference is unavailable, it will set the theme to light mode.
+     */
+    loadTheme() {
+      const storage = window.localStorage;
+
+      if (storage.getItem("isDark")) {
+        this.$vuetify.theme.dark = storage.getItem("isDark");
+      } else {
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          this.$vuetify.theme.dark = true;
+        } else {
+          this.$vuetify.theme.dark = false;
+        }
+      }
+    },
   },
 };
 </script>

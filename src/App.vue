@@ -22,13 +22,7 @@
         <v-spacer></v-spacer>
 
         <LocaleSwitcher></LocaleSwitcher>
-
-        <!--dark mode switch-->
-        <v-btn @click="toggleTheme" icon class="d-none d-sm-flex mr-4 text--primary">
-          <v-icon>
-            {{ icons.mdiThemeLightDark }}
-          </v-icon>
-        </v-btn>
+        <ThemeSwitcher></ThemeSwitcher>
 
         <!--router links here-->
         <router-link class="d-none d-sm-flex text--primary" to="/about">{{
@@ -48,16 +42,18 @@
 // TODO: responsive nav (with footer?)
 // TODO: finish language support
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
-import { mdiCheckboxBlankCircle, mdiThemeLightDark } from "@mdi/js";
+import ThemeSwitcher from "./components/ThemeSwitcher.vue";
+
+import { mdiCheckboxBlankCircle } from "@mdi/js";
 export default {
   name: "App",
   components: {
     LocaleSwitcher,
+    ThemeSwitcher,
   },
   data() {
     return {
       icons: {
-        mdiThemeLightDark,
         mdiCheckboxBlankCircle,
       },
     };
@@ -66,16 +62,6 @@ export default {
     this.loadTheme();
   },
   methods: {
-    /**
-     * Toggles global theme and saves the state on local storage
-     */
-    toggleTheme() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-
-      const storage = window.localStorage;
-      storage.setItem("isDark", this.$vuetify.theme.dark);
-    },
-
     /**
      * Loads and sets theme state from local storage.
      * If local storage entry does not exist, it will search for the user preference.

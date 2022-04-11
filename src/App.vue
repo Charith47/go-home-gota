@@ -25,9 +25,11 @@
         <ThemeSwitcher></ThemeSwitcher>
 
         <!--router links here-->
-        <router-link class="d-none d-sm-flex text--primary" to="/about">{{
-          $t("main.appBar.about")
-        }}</router-link>
+        <router-link
+          class="d-none d-sm-flex text--primary"
+          :to="$i18nRoute({ name: 'About' })"
+          >{{ $t("main.appBar.about") }}
+        </router-link>
       </v-container>
     </v-app-bar>
 
@@ -41,6 +43,7 @@
 // TODO: add grain
 // TODO: responsive nav (with footer?)
 // TODO: finish language support
+// TODO: add footer
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
 import ThemeSwitcher from "./components/ThemeSwitcher.vue";
 
@@ -60,6 +63,7 @@ export default {
   },
   mounted() {
     this.loadTheme();
+    //TODO: load locale?
   },
   methods: {
     /**

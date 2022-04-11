@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>Hello from home</h1>
     <Carousel></Carousel>
     <div id="box"></div>
   </v-container>
@@ -17,7 +18,7 @@ export default {
 </script>
 
 <style>
-#box{
+#box {
   height: 2000px;
 }
 </style>

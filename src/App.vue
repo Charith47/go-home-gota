@@ -4,7 +4,7 @@
     <v-app-bar id="app-bar" app flat outlined>
       <v-container class="py-0 my-0 fill-height">
         <!--main title-->
-        <h2 class="px-2 text--primary">GoHomeGota</h2>
+        <h2 class="text--primary">GoHomeGota</h2>
         <!--TODO: replace with svg?-->
         <v-icon class="dot" x-small color="justice">
           {{ icons.mdiCheckboxBlankCircle }}
@@ -44,6 +44,9 @@
 </template>
 
 <script>
+// TODO: add grain
+// TODO: responsive nav (with footer?)
+// TODO: finish language support
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
 import { mdiCheckboxBlankCircle, mdiThemeLightDark } from "@mdi/js";
 export default {

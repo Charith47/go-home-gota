@@ -1,7 +1,7 @@
 <template>
   <v-menu open-on-hover offset-y>
     <template v-slot:activator="{ on, attrs }">
-      <v-icon class="pr-4 text--primary" v-bind="attrs" v-on="on">
+      <v-icon class="d-none d-sm-flex pr-4 text--primary" v-bind="attrs" v-on="on">
         {{ icons.mdiTranslate }}
       </v-icon>
     </template>

@@ -24,14 +24,14 @@
         <LocaleSwitcher></LocaleSwitcher>
 
         <!--dark mode switch-->
-        <v-btn @click="toggleTheme" icon class="mr-4 text--primary">
+        <v-btn @click="toggleTheme" icon class="d-none d-sm-flex mr-4 text--primary">
           <v-icon>
             {{ icons.mdiThemeLightDark }}
           </v-icon>
         </v-btn>
 
         <!--router links here-->
-        <router-link class="text--primary" to="/about">{{
+        <router-link class="d-none d-sm-flex text--primary" to="/about">{{
           $t("main.appBar.about")
         }}</router-link>
       </v-container>

@@ -19,9 +19,9 @@ const Translate = {
 	},
 	setI18nLocaleInServices(locale) {
 		Translate.currentLocale = locale;
-		axios.defaults.headers.common['Accept-Language'] = locale;
 		window.localStorage.setItem('locale', locale);
 		document.querySelector('html').setAttribute('lang', locale)
+		axios.defaults.headers.common['Accept-Language'] = locale;
 		return locale
 	},
 	loadLocaleFile(locale) {
@@ -62,7 +62,7 @@ const Translate = {
 		return Translate.defaultLocale;
 	},
 	getUserLocale() {
-		const locale = window.navigator.language || window.navigator.userLanguage || Translate.defaultLocale;
+		const locale = window.localStorage.getItem("locale") || window.navigator.language || window.navigator.userLanguage || Translate.defaultLocale;
 
 		return {
 			locale: locale,
@@ -70,8 +70,5 @@ const Translate = {
 		}
 	}
 }
-
-
-
 
 export { Translate }

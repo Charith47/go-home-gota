@@ -35,16 +35,10 @@ export default {
   },
   methods: {
     switchLocale(locale) {
-      if (this.$i18n.locale !== locale) {
-        this.$i18n.locale = locale;
-
-        const to = this.$router.resolve({ params: { locale } });
-        console.log(to);
-
-        return Translate.changeLocale(locale).then(() => {
-          this.$router.push(to.location);
-        });
-      }
+      const to = this.$router.resolve({ params: { locale } });
+      return Translate.changeLocale(locale).then(() => {
+        this.$router.push(to.location);
+      });
     },
   },
   computed: {

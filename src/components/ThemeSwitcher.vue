@@ -3,7 +3,7 @@
     @click="toggleTheme"
     icon
     :class="`${
-      visibleOnMobile ? '' : 'd-none d-sm-flex'
+      visibleOnMobile ? 'd-sm-none' : 'd-none d-sm-flex'
     } ${padding} ${margin} text--primary`"
   >
     <v-icon>

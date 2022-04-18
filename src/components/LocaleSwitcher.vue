@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on, attrs }">
       <v-icon
         :class="`${
-          visibleOnMobile ? '' : 'd-none d-sm-flex'
+          visibleOnMobile ? 'd-sm-none' : 'd-none d-sm-flex'
         } ${padding} ${margin} text--primary`"
         v-bind="attrs"
         v-on="on"

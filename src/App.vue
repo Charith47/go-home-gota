@@ -3,21 +3,20 @@
     <!--top appbar-->
     <v-app-bar id="app-bar" app flat outlined>
       <v-container class="py-0 my-0 fill-height">
+        
         <!--main title-->
-        <h2 class="text--primary">GoHomeGota</h2>
-        <!--TODO: replace with svg?-->
-        <v-icon class="dot" x-small color="justice">
-          {{ icons.mdiCheckboxBlankCircle }}
-        </v-icon>
-        <v-icon class="dot" x-small color="strength">
-          {{ icons.mdiCheckboxBlankCircle }}
-        </v-icon>
-        <v-icon class="dot" x-small color="peace">
-          {{ icons.mdiCheckboxBlankCircle }}
-        </v-icon>
-        <v-icon class="dot" x-small color="victory">
-          {{ icons.mdiCheckboxBlankCircle }}
-        </v-icon>
+        <img
+          v-if="$vuetify.theme.dark"
+          width="205px"
+          src="./assets/logo/logo_dark.png"
+          alt="GoHomeGota"
+        />
+        <img
+          v-else
+          width="205px"
+          src="./assets/logo/logo_light.png"
+          alt="GoHomeGota"
+        />
 
         <v-spacer></v-spacer>
 
@@ -46,7 +45,7 @@
 
     <v-footer app absolute>
       <v-container>
-        <v-card flat tile width="100%" color="transparent" class=" text-center">
+        <v-card flat tile width="100%" color="transparent" class="text-center">
           <v-card-text> </v-card-text>
           <v-divider></v-divider>
           <v-card-text class="text--primary">

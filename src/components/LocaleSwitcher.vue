@@ -1,8 +1,10 @@
 <template>
-  <v-menu open-on-hover offset-y>
+  <v-menu open-on-hover :offset-overflow="offsetOverflow" :offset-y="offsetY">
     <template v-slot:activator="{ on, attrs }">
       <v-icon
-        class="d-none d-sm-flex pr-4 text--primary"
+        :class="`${
+          visibleOnMobile ? '' : 'd-none d-sm-flex'
+        } ${padding} ${margin} text--primary`"
         v-bind="attrs"
         v-on="on"
       >
@@ -26,6 +28,7 @@ import { mdiTranslate } from "@mdi/js";
 import { Translate } from "@/plugins/translate";
 
 export default {
+  props: ["visibleOnMobile", "padding", "margin", "offsetY", "offsetOverflow"],
   data() {
     return {
       icons: {

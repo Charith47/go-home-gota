@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-0">
     <h1>Hello from home</h1>
     <Carousel></Carousel>
     <div id="box"></div>

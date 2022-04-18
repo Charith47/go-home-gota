@@ -1,5 +1,11 @@
 <template>
-  <v-btn @click="toggleTheme" icon class="d-none d-sm-flex mr-4 text--primary">
+  <v-btn
+    @click="toggleTheme"
+    icon
+    :class="`${
+      visibleOnMobile ? '' : 'd-none d-sm-flex'
+    } ${padding} ${margin} text--primary`"
+  >
     <v-icon>
       {{ icons.mdiThemeLightDark }}
     </v-icon>
@@ -9,6 +15,7 @@
 <script>
 import { mdiThemeLightDark } from "@mdi/js";
 export default {
+  props: ["visibleOnMobile", "padding", "margin"],
   data() {
     return {
       icons: {

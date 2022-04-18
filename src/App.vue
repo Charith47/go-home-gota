@@ -21,8 +21,13 @@
 
         <v-spacer></v-spacer>
 
-        <LocaleSwitcher></LocaleSwitcher>
-        <ThemeSwitcher></ThemeSwitcher>
+        <LocaleSwitcher
+          :visibleOnMobile="false"
+          :offsetOverflow="false"
+          :offsetY="true"
+          padding="pr-4"
+        ></LocaleSwitcher>
+        <ThemeSwitcher :visibleOnMobile="false" margin="mr-4"></ThemeSwitcher>
 
         <!--router links here-->
         <router-link
@@ -34,16 +39,36 @@
     </v-app-bar>
 
     <v-main>
-      <router-view />
+      <v-container>
+        <router-view />
+      </v-container>
     </v-main>
+
+    <v-footer app absolute>
+      <v-container>
+        <v-card flat tile width="100%" color="transparent" class=" text-center">
+          <v-card-text> </v-card-text>
+          <v-divider></v-divider>
+          <v-card-text class="text--primary">
+            {{ new Date().getFullYear() }} — <strong>GoHomeGota</strong>
+          </v-card-text>
+          <v-card-actions class="mx-0 px-0">
+            <v-spacer></v-spacer>
+            <LocaleSwitcher
+              :visibleOnMobile="true"
+              :offsetOverflow="true"
+              padding="pr-4"
+            ></LocaleSwitcher>
+            <ThemeSwitcher :visibleOnMobile="true"></ThemeSwitcher>
+          </v-card-actions>
+        </v-card>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 // TODO: add grain
-// TODO: responsive nav (with footer?)
-// TODO: finish language support
-// TODO: add footer
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
 import ThemeSwitcher from "./components/ThemeSwitcher.vue";
 
@@ -100,6 +125,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1904px) {
+  .container {
+    max-width: 1185px !important;
+  }
 }
 
 #main {

@@ -31,6 +31,16 @@ export default {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       const storage = window.localStorage;
       storage.setItem("isDark", this.$vuetify.theme.dark);
+
+      if (this.$vuetify.theme.dark) {
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", this.$vuetify.theme.themes.dark.background);
+      } else {
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", this.$vuetify.theme.themes.light.background);
+      }
     },
   },
 };

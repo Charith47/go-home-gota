@@ -3,6 +3,7 @@
     <!--top appbar-->
     <v-app-bar id="app-bar" app flat outlined>
       <v-container class="px-0 py-0 my-0 fill-height">
+        <!--mobile burger menu-->
         <v-app-bar-nav-icon
           @click.stop="navDrawer = !navDrawer"
           class="d-sm-none"
@@ -11,7 +12,8 @@
             {{ icons.mdiMenu }}
           </v-icon>
         </v-app-bar-nav-icon>
-        <!--main title-->
+
+        <!--main title TODO: use svg / add route to home-->
         <img
           v-if="$vuetify.theme.dark"
           width="205px"
@@ -44,6 +46,7 @@
       </v-container>
     </v-app-bar>
 
+    <!--side navbar-->
     <v-navigation-drawer
       color="background"
       v-model="navDrawer"

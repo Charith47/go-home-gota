@@ -1,8 +1,7 @@
 <template>
-  <v-container class="px-0">
-    <h1>Hello from home</h1>
-    <Carousel></Carousel>
-    <div id="box"></div>
+  <v-container class="px-0 pt-0">
+      <Carousel></Carousel>
+      <div id="box"></div>
   </v-container>
 </template>
 

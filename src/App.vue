@@ -3,7 +3,6 @@
     <!--top appbar-->
     <v-app-bar id="app-bar" app flat outlined>
       <v-container class="py-0 my-0 fill-height">
-        
         <!--main title-->
         <img
           v-if="$vuetify.theme.dark"
@@ -38,7 +37,7 @@
     </v-app-bar>
 
     <v-main>
-      <v-container>
+      <v-container class="pt-0">
         <router-view />
       </v-container>
     </v-main>
@@ -87,7 +86,6 @@ export default {
   },
   mounted() {
     this.loadTheme();
-    //TODO: load locale?
   },
   methods: {
     /**

@@ -2,7 +2,15 @@
   <v-app id="main">
     <!--top appbar-->
     <v-app-bar id="app-bar" app flat outlined>
-      <v-container class="py-0 my-0 fill-height">
+      <v-container class="px-0 py-0 my-0 fill-height">
+        <v-app-bar-nav-icon
+          @click.stop="navDrawer = !navDrawer"
+          class="d-sm-none"
+        >
+          <v-icon color="grey lighten-1">
+            {{ icons.mdiMenu }}
+          </v-icon>
+        </v-app-bar-nav-icon>
         <!--main title-->
         <img
           v-if="$vuetify.theme.dark"
@@ -27,17 +35,45 @@
         ></LocaleSwitcher>
         <ThemeSwitcher :visibleOnMobile="false" margin="mr-4"></ThemeSwitcher>
 
-        <!--router links here-->
+        <!--TOP-NAV: router links here-->
         <router-link
           class="d-none d-sm-flex text--primary"
           :to="$i18nRoute({ name: 'About' })"
-          >{{ $t("main.appBar.about") }}
+          >{{ $t("main.nav.about") }}
         </router-link>
       </v-container>
     </v-app-bar>
 
+    <v-navigation-drawer
+      class="black"
+      v-model="navDrawer"
+      app
+      :disable-resize-watcher="true"
+    >
+      <v-list nav dense>
+        <v-list-item-group>
+          <v-list-item three-line disabled inactive>
+            <img src="./assets/logo/dots_01.svg" alt="GoHomeGota" />
+          </v-list-item>
+        </v-list-item-group>
+
+        <v-divider class="py-4"></v-divider>
+
+        <!--SIDE-NAV: router links here-->
+        <v-list-item-group>
+          <v-list-item two-line :to="$i18nRoute({ name: 'Home' })">
+            <v-list-item-title>{{ $t("main.nav.home") }}</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item two-line :to="$i18nRoute({ name: 'About' })">
+            <v-list-item-title>{{ $t("main.nav.about") }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
     <v-main>
-      <v-container class="pt-0">
+      <v-container class="px-0 pt-0">
         <router-view />
       </v-container>
     </v-main>
@@ -70,7 +106,7 @@
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
 import ThemeSwitcher from "./components/ThemeSwitcher.vue";
 
-import { mdiCheckboxBlankCircle } from "@mdi/js";
+import { mdiMenu } from "@mdi/js";
 export default {
   name: "App",
   components: {
@@ -80,8 +116,9 @@ export default {
   data() {
     return {
       icons: {
-        mdiCheckboxBlankCircle,
+        mdiMenu,
       },
+      navDrawer: false,
     };
   },
   mounted() {
@@ -122,6 +159,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 600px) {
+  .v-toolbar__content {
+    padding: 4px 0px !important;
+  }
 }
 
 @media (min-width: 1904px) {

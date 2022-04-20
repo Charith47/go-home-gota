@@ -1,7 +1,8 @@
 {
   "main": {
-    "appBar": {
-      "about": "About"
+    "nav": {
+      "about": "About",
+      "home": "Home"
     }
   }
 }

@@ -45,7 +45,7 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      class="black"
+      color="background"
       v-model="navDrawer"
       app
       :disable-resize-watcher="true"
@@ -62,11 +62,15 @@
         <!--SIDE-NAV: router links here-->
         <v-list-item-group>
           <v-list-item two-line :to="$i18nRoute({ name: 'Home' })">
-            <v-list-item-title>{{ $t("main.nav.home") }}</v-list-item-title>
+            <v-list-item-title class="text--primary">{{
+              $t("main.nav.home")
+            }}</v-list-item-title>
           </v-list-item>
 
           <v-list-item two-line :to="$i18nRoute({ name: 'About' })">
-            <v-list-item-title>{{ $t("main.nav.about") }}</v-list-item-title>
+            <v-list-item-title class="text--primary">{{
+              $t("main.nav.about")
+            }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>

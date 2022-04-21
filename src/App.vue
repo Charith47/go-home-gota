@@ -142,14 +142,29 @@ export default {
 
       if (storage.getItem("isDark")) {
         this.$vuetify.theme.dark = storage.getItem("isDark");
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", this.$vuetify.theme.themes.dark.background);
       } else {
         if (
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches
         ) {
           this.$vuetify.theme.dark = true;
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute(
+              "content",
+              this.$vuetify.theme.themes.dark.background
+            );
         } else {
           this.$vuetify.theme.dark = false;
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute(
+              "content",
+              this.$vuetify.theme.themes.light.background
+            );
         }
       }
     },

@@ -40,6 +40,13 @@ const router = new VueRouter({
   routes
 })
 
+const DEFAULT_TITLE = 'GoHomeGota'
+router.afterEach((to) => {
+	Vue.nextTick(() => {
+		document.title = to.name || DEFAULT_TITLE;
+	})
+})
+
 function load(component) {
   return () => import(`@/views/${component}.vue`)
 }
